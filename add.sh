@@ -17,8 +17,11 @@ fi
 cp ./template/PNUMBER.scala $main_file
 cp ./template/PNUMBERSpec.scala $test_file
 
-sed -i"" -e "s/PNUMBER/$number/g" $main_file
-sed -i"" -e "s/PNUMBER/$number/g" $test_file
+sed -i -e "s/PNUMBER/$number/g" $main_file
+sed -i -e "s/PNUMBER/$number/g" $test_file
+
+rm "${main_file}-e"
+rm "${test_file}-e"
 
 if [ -f "./.git/config" ]; then
   git add $main_file
