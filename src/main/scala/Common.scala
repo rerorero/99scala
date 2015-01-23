@@ -12,4 +12,11 @@ object Common {
     case (acc, x :: xs) => f(x, foldr(acc, xs)(f))
   }
 
+  def isEqualList[A](x:List[A], y:List[A]) : Boolean = (x, y) match {
+    case (Nil, Nil) => true
+    case (Nil, _) => false
+    case (_, Nil) => false
+    case (x :: xs, y :: ys) => (x == y) && isEqualList(xs, ys)
+  }
+
 }
