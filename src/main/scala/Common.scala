@@ -19,4 +19,8 @@ object Common {
     case (x :: xs, y :: ys) => (x == y) && isEqualList(xs, ys)
   }
 
+  def timesList[A](time:Integer, elem:A) : List[A] = time match {
+    case x if x > 0 => elem :: timesList(x - 1, elem)
+    case _ => Nil
+  }
 }
